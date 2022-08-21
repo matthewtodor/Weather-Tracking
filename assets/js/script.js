@@ -50,4 +50,7 @@ function showVal(newVal) {
 	$("#number-of-days").text(newVal);
 }
 
-// function todaysWeather();
+/////Use this to dynamically create icon source attribute based on response's weather icon
+// $("img").attr("src", function () {
+// 	return "/resources/" + this.title;
+// });
