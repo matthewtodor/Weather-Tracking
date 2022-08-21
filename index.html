@@ -25,7 +25,16 @@
 					<div id="city-empty-alert"></div>
 					<div class="input-group">
 						<span class="input-group-text">City</span>
-						<input type="search" name="city-search" id="city-search" placeholder="City" class="form-control" />
+						<input type="search" name="city-search" id="city-search" placeholder="City" class="form-control" list="city-options"/>
+						<datalist id="city-options">
+							<option value="Denver"></option>
+							<option value="Austin"></option>
+							<option value="London"></option>
+							<option value="New York"></option>
+							<option value="Hollywood"></option>
+							<option value="Las Vegas"></option>
+							<option value="Paris"></option>
+						</datalist>
 					</div>
 					<div class="input-group input-group-sm">
 						<span class="input-group-text">Number of Days</span>
@@ -43,16 +52,16 @@
 						/>
 						<span class="input-group-text" id="number-of-days">5</span>
 						<datalist id="days-options">
-							<option value="1"></option>
-							<option value="3"></option>
-							<option value="5"></option>
-							<option value="7"></option>
-							<option value="10"></option>
-							<option value="14"></option>
-							<option value="16"></option>
+							<option value="1">1</option>
+							<option value="3">3</option>
+							<option value="5">5</option>
+							<option value="7">7</option>
+							<option value="10">10</option>
+							<option value="14">14</option>
+							<option value="16">16</option>
 						</datalist>
 					</div>
-					<div class="form-check">
+					<div class="form-check" id="testy">
 						<input type="radio" id="metric" name="units" value="M" />
 						<label for="metric">Metric</label>
 						<input type="radio" id="imperial" name="units" value="I" checked="checked" />
@@ -64,6 +73,8 @@
 				</form>
 				<div class="search-history"></div>
 			</aside>
+			<div class=""id="todays-forcast"></div>
+			<div class="" id="multi-day-forcast"></divc>
 		</main>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
