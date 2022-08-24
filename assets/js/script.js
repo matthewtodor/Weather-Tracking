@@ -5,7 +5,7 @@ $("#city-search").on("keydown", function () {
 	$("#city-search").removeClass("is-invalid");
 	$("#city-empty-alert").empty();
 });
-console.log(window.screen.width);
+// Changes the number of days selector from a range input to a select input, to make it easier to choose a number on phones
 if (window.screen.width < 768) {
 	$("#days").attr("type", "select");
 	$("#days").attr("value", "");
@@ -19,8 +19,13 @@ $("#searchBtn").on("click", function (e) {
 	var days = "&days=" + $("#days").val();
 
 	if ($("#city-search").val().length == 0) {
-		var alert = $("<div class='alert alert-danger' role='alert'><p>Please enter a city before searching</p></div");
+		var alert = $("<div class='alert alert-danger' role='alert'><p>Please enter a city before searching</p></div>");
 		$("#city-search").addClass("is-invalid");
+		$("#city-empty-alert").append(alert);
+	}
+	if ($("#days").val().length == 0) {
+		var alert = $("<div class='alert alert-danger' role='alert'><p>Please enter a number of days before searching</p></div>");
+		$("#days").addClass("is-invalid");
 		$("#city-empty-alert").append(alert);
 	} else {
 		getWeather(city, units, days);
@@ -42,14 +47,17 @@ function getWeather(city, units, days) {
 		var windDirection = response.data[0].wind_cdir_full;
 		var weatherDescr = response.data[0].weather.description;
 		var weatherIcon = response.data[0].weather.icon;
-		console.log(highTemp, lowTemp, currentTemp, windSpeed, windDirection, weatherDescr, weatherIcon);
+		// console.log(highTemp, lowTemp, currentTemp, windSpeed, windDirection, weatherDescr, weatherIcon);
 		$("#city-search").val("");
+		weatherToday(highTemp, lowTemp, currentTemp, windSpeed, windDirection, weatherDescr, weatherIcon);
 	});
 }
 function showVal(newVal) {
 	$("#number-of-days").text(newVal);
 }
-
+function weatherToday(highTemp, lowTemp, currentTemp, windSpeed, windDirection, weatherDescr, weatherIcon) {
+	console.log("test");
+}
 /////Use this to dynamically create icon source attribute based on response's weather icon
 // $("img").attr("src", function () {
 // 	return "/resources/" + this.title;
