@@ -38,7 +38,7 @@ function getWeather(city, units, days) {
 		url: "https://api.weatherbit.io/v2.0/forecast/daily" + city + units + days + apiKey,
 	}).then(function (response) {
 		console.log("https://api.weatherbit.io/v2.0/forecast/daily" + city + units + days + apiKey);
-		console.log(response.data[0]);
+		console.log(response.data);
 		$("#todays-forcast").empty();
 		var highTemp = response.data[0].high_temp;
 		var lowTemp = response.data[0].low_temp;
