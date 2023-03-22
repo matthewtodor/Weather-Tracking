@@ -1,4 +1,4 @@
-var apiKey = "&key=" + "65808fcc669441d98a37afa2e978b679";
+var apiKey = "&key=" + "<API_KEY>";
 var daysValue = $("#days");
 var daysCount = $("#days-count");
 $("#city-search").on("keydown", function () {
